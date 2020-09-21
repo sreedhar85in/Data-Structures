@@ -24,6 +24,11 @@ public class FixedArray {
 		double total = prices[0]+prices[1]+prices[2]+prices[3]+prices[4];
 		
 		System.out.println("The Total is :: " + total);
+	
+		
+		//Implicit and explicit conversion topic
+		System.out.println((3+5+3+2)/3);
+		System.out.println((3+5+3+1)/3.0);
 		
 	}
 
