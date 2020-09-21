@@ -42,6 +42,43 @@ public class FoobarChallengeLevel1 {
 		
 	}
 	
+static int[] removefinal(int data[],  int n)   {
+		
+		int arrayLength = data.length; 
+		
+        System.out.println("The array length is :: " + arrayLength);
+		
+
+		 HashMap<Integer, Integer> mp3 = new HashMap<Integer, Integer>();
+
+		for (int x : data) {
+
+			mp3.put(x, mp3.getOrDefault(x, 0) + 1);
+
+		}
+
+		ArrayList<Integer> list2 = new ArrayList<Integer>();
+
+		for (int i = 0; i < arrayLength; i++) {
+
+			if ((mp3.containsKey(data[i]) && mp3.get(data[i]) > n)) {
+				continue;
+			}
+			
+				
+			list2.add(data[i]);
+
+		}
+
+	int[]	arr9 = list2.stream().mapToInt(i -> i).toArray();
+		//list2=null;
+	//	mp3=null;
+		arrayLength=0;
+		return arr9;
+
+	}
+	
+	
 	
 	
 	public String Solution() {
