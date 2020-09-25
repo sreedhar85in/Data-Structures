@@ -3,7 +3,11 @@ package com.arrays.learning.controller;
 import java.util.ArrayList;
 import java.util.List;
 
+import lombok.extern.slf4j.Slf4j;
+
+@Slf4j
 public class ForEachwithList {
+	
 	
 public static void main(String[] args) {
 	
@@ -25,6 +29,10 @@ public void foreachwithlistmethod1() {
 	items.forEach(item -> System.out.println(item));
 	
 	System.out.println("---------------------------------------------------------");
+	log.info("Info");
+	log.debug("Debug");
+	log.error("Error");
+	log.warn("warning");
 	
 	items.forEach(item -> {
 		if("C".equals(item))

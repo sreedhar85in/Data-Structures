@@ -9,9 +9,11 @@ public class ArraytopicApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(ArraytopicApplication.class, args);
 		
-		SpringApplication app = new SpringApplication(ArraytopicApplication.class);
-		app.setAdditionalProfiles(System.getProperty("APP_ENV", "dev"));
-		app.run(args);
+		/*
+		 * SpringApplication app = new SpringApplication(ArraytopicApplication.class);
+		 * app.setAdditionalProfiles(System.getProperty("APP_ENV", "dev"));
+		 * app.run(args);
+		 */
 	}
 
 }
