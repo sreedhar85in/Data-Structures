@@ -23,9 +23,12 @@ public class FoobarChallengeLevel1 {
 		Set<Integer> value = findDuplicates(list);
 		System.out.println("The value of duplicates are " + value.toString());
 		System.out.println(list.toString());
+		
+		//Actual Solution
 		int arr[] = {10, 20, 20, 10, 10, 20, 5, 20}; 
 		int n = arr.length; 
-		countFreq(arr,n);
+		//countFreq(arr,n);
+		removefinal(arr,n);
 		
 		
 		/*
