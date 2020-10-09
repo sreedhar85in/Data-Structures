@@ -21,6 +21,19 @@ public static void main(String[] args) {
 	
 	int result = factorial(5);
 	System.out.println("Factorial of 5 is :"+ result);
+	
+	StringBuffer test = new StringBuffer();
+	for(int i=9;i>=0;i--){
+		
+		test.append(i+" ");
+       
+    }
+	
+	 System.out.println(test );
+	 String yourString = "@catDog_#3";
+	 
+	 String result1 = yourString.replaceAll("[\\@\\+\\_ \\#:,]","");
+	 System.out.println(result1);
 }
 
 }
