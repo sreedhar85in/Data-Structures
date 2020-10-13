@@ -60,6 +60,27 @@ public class LinkedListInsertatHead<T> {
 		System.out.println(temp.data.toString() + " -> null");
 	}
 	
+	
+	 public void insertAtEnd(T data) {
+	       if(isEmpty()){
+	           insertAtHead(data);
+	       }
+	       else{
+	           Node temporary = headNode;
+	           while(temporary.nextNode!=null){
+	              // System.out.println("Not the tail of the ode train yet!!");
+	               temporary= temporary.nextNode;
+	           }
+	           
+	          Node newNode2 = new Node();
+	          newNode2.data = data;
+	          newNode2.nextNode = null;
+	          temporary.nextNode=newNode2;
+	          size++;
+	       }
+
+	    }
+	
 
 	
 	public static void main(String[] args) {
@@ -70,7 +91,8 @@ public class LinkedListInsertatHead<T> {
 		obj.printList();
 		for(int i=1;i<=10; i++) {
 			
-			obj.insertAtHead(i);
+			//obj.insertAtHead(i);
+			obj.insertAtEnd(i);
 			obj.printList();
 		}
 		
