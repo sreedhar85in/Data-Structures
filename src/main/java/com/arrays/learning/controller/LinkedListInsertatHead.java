@@ -64,6 +64,7 @@ public class LinkedListInsertatHead<T> {
 	 public void insertAtEnd(T data) {
 	       if(isEmpty()){
 	           insertAtHead(data);
+	          
 	       }
 	       else{
 	           Node temporary = headNode;
@@ -80,6 +81,32 @@ public class LinkedListInsertatHead<T> {
 	       }
 
 	    }
+	 
+	 public void insertafter(T data, T previousData) {
+		 
+		 Node newNode = new Node();
+		 newNode.data = data;
+		 
+		 
+		 //assign head node to a temp node for preparing to traversal of the linkedlist.
+		 Node currentNode = headNode;
+		 
+		 //traverse the linkedlist
+		 while(currentNode!=null && !currentNode.data.equals(previousData)) {
+			 currentNode = currentNode.nextNode;
+			 
+		 }
+		 
+		 //if such a node is found, then point our newnode to currentnodes next element.
+		 
+		 newNode.nextNode = currentNode.nextNode;
+		 currentNode.nextNode=newNode;
+		 size++;
+		 
+		 
+		 
+		 
+	 }
 	
 
 	
@@ -95,6 +122,9 @@ public class LinkedListInsertatHead<T> {
 			obj.insertAtEnd(i);
 			obj.printList();
 		}
+		
+		obj.insertafter(2,8);
+		obj.printList();
 		
 	}
 
