@@ -107,6 +107,28 @@ public class LinkedListInsertatHead<T> {
 		 
 		 
 	 }
+	 
+	 public boolean searchNode(T data) {
+	        Node tempNode = this.headNode;
+	        
+	        if(isEmpty()) {
+	        	return false;
+	        }
+	        
+	        while(tempNode.nextNode!=null && !tempNode.data.equals(data)) {
+	        	
+	        	tempNode = tempNode.nextNode;
+	        }
+	       
+	        if(tempNode.data.equals(data)) {
+	        	return true;
+	        }
+	        
+	        else {
+	        	return false;
+	        }
+	        
+	    }
 	
 
 	
@@ -118,8 +140,8 @@ public class LinkedListInsertatHead<T> {
 		obj.printList();
 		for(int i=1;i<=10; i++) {
 			
-			//obj.insertAtHead(i);
-			obj.insertAtEnd(i);
+			obj.insertAtHead(i);
+			//obj.insertAtEnd(i);
 			obj.printList();
 		}
 		
