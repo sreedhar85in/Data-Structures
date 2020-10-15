@@ -130,6 +130,27 @@ public class LinkedListInsertatHead<T> {
 	        
 	    }
 	
+	 
+	 public boolean optimisedSearchNode(T data) {
+		 
+		 //start from the first element
+		 Node currentNode = this.headNode;
+		 
+		 //traverse the whole list
+		 
+		 while(currentNode!=null) {
+			 
+			 if(currentNode.data.equals(data)) {
+				 return true; //value found
+			 }
+			 
+			 currentNode = currentNode.nextNode;
+		 }
+		 
+		 return false; // value not found
+		 
+		 
+	 }
 
 	
 	public static void main(String[] args) {
