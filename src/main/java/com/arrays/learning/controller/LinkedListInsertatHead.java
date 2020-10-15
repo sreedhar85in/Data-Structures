@@ -151,6 +151,16 @@ public class LinkedListInsertatHead<T> {
 		 
 		 
 	 }
+	 
+	 public void deleteAtHead() {
+		 //If list is empty then simply return
+		 if (isEmpty()) {
+			 return;
+		 }
+		 //make the next node of the headnode equal to new headNode
+		 headNode = headNode.nextNode;
+		 size--;
+	 }
 
 	
 	public static void main(String[] args) {
