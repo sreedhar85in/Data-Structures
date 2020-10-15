@@ -161,6 +161,47 @@ public class LinkedListInsertatHead<T> {
 		 headNode = headNode.nextNode;
 		 size--;
 	 }
+	 
+	//Access HeadNode => this.headNode;
+	//Check if list is empty => this.isEmpty();  
+	//Node class  { T data ; Node nextNode;}
+	 
+	    public void deleteByValue(T data) {
+	      if(isEmpty()){
+	        return;
+	      }
+	      Node currentNode = this.headNode;
+	      if(currentNode.data.equals(data)){
+	  this.headNode=null;
+	}
+
+	      if(currentNode.nextNode!=null){
+	      while(!currentNode.nextNode.data.equals(data)){
+	        {
+	          currentNode = currentNode.nextNode;
+
+	        }
+	      }
+	if(currentNode.data.equals(data)){
+	  this.headNode=null;
+	}
+	        if(!currentNode.nextNode.data.equals(data)){
+	          return;
+	        }
+
+	        if(currentNode.nextNode.data.equals(data)){
+
+	          currentNode.nextNode=currentNode.nextNode.nextNode;
+	          size--;
+	        }
+	         
+
+	      }
+
+
+
+	    }
+	
 
 	
 	public static void main(String[] args) {
