@@ -201,6 +201,55 @@ public class LinkedListInsertatHead<T> {
 
 
 	    }
+	    
+	    public void deleteByValueOptimized(T data) {
+	    	
+	    	//While traversing through the linked list, there are three cases we can come across:
+
+	    	//	List is empty
+	    	//	One element in the list
+	    	//	More than one element in the list   	
+	    	
+	    	
+	    	
+	    	//if empty then simply return
+	    	
+	    	if(isEmpty()) {
+	    		return;
+	    	}
+	    	
+	    	
+	    	//start from head node
+	    	
+	    	Node currentNode = this.headNode;
+	    	Node prevNode= null;// previous node starts from null
+	    	
+	    	if(currentNode.data.equals(data)) {
+	    		
+	    		//data is at head so delete from head
+	    		
+	    		deleteAtHead();
+	    		return;
+	    		
+	    	}
+	    	
+	    	//traverse the list searching for the data to delete
+	    	
+	    	while(currentNode!=null) {
+	    		
+	    		//node to delete is found
+	    		if(data.equals(currentNode.data)) {
+	    			prevNode.nextNode = currentNode.nextNode;
+	    			size--;
+	    			return;
+	    			
+	    		}
+	    		
+	    		prevNode = currentNode;
+	    		currentNode = currentNode.nextNode;
+	    	}
+	    	
+	    }
 	
 
 	
