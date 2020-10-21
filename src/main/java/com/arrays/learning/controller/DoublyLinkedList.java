@@ -30,6 +30,11 @@ public class DoublyLinkedList<T> {
 		}
 	}
 	
+	public boolean isEmptyNew() {
+		
+		return headNode==null;
+	}
+	
 	public void deletebyValue(T data) {
 		
 		if(isEmpty()) {
