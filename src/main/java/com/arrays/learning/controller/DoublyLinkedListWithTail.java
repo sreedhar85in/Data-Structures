@@ -19,6 +19,30 @@ public class DoublyLinkedListWithTail<T> {
 	
 	//constructor
 	
+	public Node getHeadNode() {
+		return headNode;
+	}
+
+	public void setHeadNode(Node headNode) {
+		this.headNode = headNode;
+	}
+
+	public Node getTailNode() {
+		return tailNode;
+	}
+
+	public void setTailNode(Node tailNode) {
+		this.tailNode = tailNode;
+	}
+
+	public int getSize() {
+		return size;
+	}
+
+	public void setSize(int size) {
+		this.size = size;
+	}
+
 	public DoublyLinkedListWithTail() {
 		this.headNode=null;
 		this.tailNode=null;
@@ -35,5 +59,28 @@ public class DoublyLinkedListWithTail<T> {
 			return false;
 		}
 	}
+	
+	public boolean isEmptyNew() {
+		
+		return headNode==null && tailNode ==null;
+	}
+	
+	public void insertAtHeadWithTailNodeLogic(T data) {
+		
+		Node newNode = new Node();
+		newNode.data = data;
+		newNode.nextNode = this.headNode;
+		newNode.prevNode = null;
+		if(!isEmptyNew()) {
+			headNode.prevNode=newNode;
+		}
+		else {
+			tailNode= newNode;
+			
+		}
+		this.headNode=newNode;
+		size++;
+	}
+	
 
 }
