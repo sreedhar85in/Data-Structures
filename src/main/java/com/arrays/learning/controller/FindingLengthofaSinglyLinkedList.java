@@ -8,6 +8,7 @@ public class FindingLengthofaSinglyLinkedList<T> {
 	}
 	
 	Node headNode;
+	int size;
 	
 	public int length() {
 	      int count = 0;
@@ -20,11 +21,56 @@ public class FindingLengthofaSinglyLinkedList<T> {
 	      return count;
 	    }
 	
+	public boolean isEmpty() {
+		
+		return headNode==null;
+		
+	}
+	
+	public void insertAtHead(T data) {
+		
+		Node newNode = new Node();
+		newNode.data=data;
+		newNode.nextNode=headNode;
+		headNode=newNode;
+		size++;
+		
+		
+	}
+	
+	public void insertatEnd(T data) {
+		
+		if(isEmpty()) {
+			
+			insertAtHead(data);
+		}
+		
+		else {
+			Node currentNode = headNode;
+			while(currentNode.nextNode!=null) {
+				currentNode = currentNode.nextNode;
+			}
+			Node newNode = new Node();
+			newNode.data = data;
+			newNode.nextNode=null;
+			currentNode.nextNode=newNode;
+			size++;
+		}
+		
+		
+	}
+	
 	public static void main(String[] args) {
 		
-		FindingLengthofaSinglyLinkedList obj = new FindingLengthofaSinglyLinkedList();
+		FindingLengthofaSinglyLinkedList<String> obj = new FindingLengthofaSinglyLinkedList<String>();
+		 
 		int length = obj.length();
-		System.out.println("lenth of the linked list is : " +length);
+		obj.insertatEnd("This");
+		obj.insertatEnd("list");
+		obj.insertatEnd("is");
+		obj.insertatEnd("Generic");
+		int lenthoflist = obj.length();
+		System.out.println("lenth of the linked list is : " +lenthoflist);
 	}
 
 }
