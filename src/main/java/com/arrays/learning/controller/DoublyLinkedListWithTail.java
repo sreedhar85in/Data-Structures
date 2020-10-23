@@ -82,5 +82,22 @@ public class DoublyLinkedListWithTail<T> {
 		size++;
 	}
 	
+	public void insetAtEndwithTailNodeLogic(T data) {
+		
+		if(isEmpty()) {
+			insertAtHeadWithTailNodeLogic(data);
+			return;
+		}
+		
+		// make a new node and assign the value to be inserted.
+		Node newNode = new Node();
+		newNode.data=data;
+		newNode.nextNode=null; //It will be inserted at the end so next node will be null.
+		tailNode.nextNode = newNode;
+		tailNode = newNode;
+		size++;
+		
+	}
+	
 
 }
