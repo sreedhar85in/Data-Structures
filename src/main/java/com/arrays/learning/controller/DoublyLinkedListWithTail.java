@@ -99,5 +99,38 @@ public class DoublyLinkedListWithTail<T> {
 		
 	}
 	
+	public void DeleteAtHeadwithTailNode() {
+		if(isEmptyNew()) {
+			return;
+		}
+		
+	headNode = headNode.nextNode;
+	if(headNode==null) {
+		tailNode = null;
+	}
+	
+	else {
+		headNode.prevNode=null;
+	}
+	size--;
+	
+	}
+	
+	public void deleteAtTailwithTailNode() {
+		
+		if(isEmpty()) {
+			return;
+		}
+		tailNode=tailNode.prevNode;
+		if(tailNode==null) {
+			headNode=null;
+		}
+		
+		else {
+			tailNode.nextNode=null;
+		}
+		size--;
+	}
+	
 
 }
