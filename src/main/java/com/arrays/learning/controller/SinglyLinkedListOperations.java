@@ -78,6 +78,8 @@ public void insertAtEnd(T data) {
 	public static void main(String[] args) {
 		LinkedList<String> list = new LinkedList<String>();
 		list.addLast("string");
+		list.addFirst("Macho");
+		System.out.println("List value is "+ list.toString());
 		
 		SinglyLinkedListOperations<String> obj = new SinglyLinkedListOperations<String>();
 		obj.insertAtEnd("This");
