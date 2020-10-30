@@ -137,6 +137,25 @@ public class SinglyLinkedList<T> {
 		
 		return false;
 	}
+	
+	public Object findMiddle(SinglyLinkedList<T> list) {
+		
+		if(list.isEmpty()) {
+			return null;
+		}
+		
+		SinglyLinkedList.Node middle = list.headNode;
+		SinglyLinkedList.Node current = list.headNode;
+		while(middle!=null && current!=null && current.nextNode!=null ) {
+			current = current.nextNode.nextNode;
+			
+			if(current!=null) {
+				middle = middle.nextNode; 
+			}
+		}
+		return middle.data;
+		
+	}
 
 	public static void main(String[] args) {
 
@@ -151,10 +170,11 @@ public class SinglyLinkedList<T> {
 		obj1.insertAtEnd("Test");
 		obj1.insertAfter("random", "is");
 		//obj1.deleteAtHead();
-		obj1.deleteByValue("This");
+		//obj1.deleteByValue("This");
 		obj1.printList();
-		System.out.println("");
-		System.out.println("The value of search boolean is : " + obj1.searchValue("Test"));
+		System.out.println("The value of the middle node is : "+obj1.findMiddle(obj1));
+		//System.out.println("");
+		//System.out.println("The value of search boolean is : " + obj1.searchValue("Test"));
 	}
 
 }
