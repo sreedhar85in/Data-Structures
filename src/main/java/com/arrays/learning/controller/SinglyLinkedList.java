@@ -1,5 +1,7 @@
 package com.arrays.learning.controller;
 
+import springfox.documentation.service.Header;
+
 public class SinglyLinkedList<T> {
 	
 	public class Node{
@@ -156,6 +158,33 @@ public class SinglyLinkedList<T> {
 		return middle.data;
 		
 	}
+	
+	public static <T> void removeDuplicates(SinglyLinkedList<T> list) {
+		
+		SinglyLinkedList.Node currentNode = list.headNode; // will be used for outer loop
+		SinglyLinkedList.Node compareNode = null; //will be used for inner loop.
+		
+		while(currentNode!=null && currentNode.nextNode!=null ) {
+			compareNode = currentNode;
+			
+			while(compareNode.nextNode!=null) {
+				if(currentNode.data.equals(compareNode.nextNode.data)) {
+					//check if duplicate
+					compareNode.nextNode=compareNode.nextNode.nextNode;
+				}
+				
+				else {
+					compareNode = compareNode.nextNode;
+				}
+			}
+			currentNode = currentNode.nextNode;
+			
+			
+					
+		}
+		
+		
+	}
 
 	public static void main(String[] args) {
 
@@ -165,6 +194,7 @@ public class SinglyLinkedList<T> {
 		 * obj1.insertAtHead("This"); obj1.printList();
 		 */
 		obj1.insertAtEnd("This");
+		obj1.insertAtEnd("This");
 		obj1.insertAtEnd("is");
 		obj1.insertAtEnd("a");
 		obj1.insertAtEnd("Test");
@@ -173,6 +203,8 @@ public class SinglyLinkedList<T> {
 		//obj1.deleteByValue("This");
 		obj1.printList();
 		System.out.println("The value of the middle node is : "+obj1.findMiddle(obj1));
+		obj1.removeDuplicates(obj1);
+		obj1.printList();
 		//System.out.println("");
 		//System.out.println("The value of search boolean is : " + obj1.searchValue("Test"));
 	}
