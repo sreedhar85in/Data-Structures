@@ -184,40 +184,64 @@ public class SinglyLinkedListPractise2<T> {
 		}
 	}
 	
+	public static <T> SinglyLinkedListPractise2<T> union(SinglyLinkedListPractise2<T> list1, SinglyLinkedListPractise2<T> list2){
+		
+		SinglyLinkedListPractise2<T> result = new SinglyLinkedListPractise2<T>();
+		//code or solution here
+		//result.headNode=list1.headNode;
+		SinglyLinkedListPractise2.Node tempNode = list1.headNode;
+		while(tempNode!=null) {
+			
+			result.insertAtEnd((T) tempNode.data);
+			tempNode = tempNode.nextNode;
+			
+		}
+		
+		tempNode = list2.headNode;
+		
+		while(tempNode!=null) {
+			result.insertAtEnd((T) tempNode.data);
+			tempNode = tempNode.nextNode;
+		}
+		
+		
+		return result;
+	}
+	
 	public static void main(String[] args) {
 		SinglyLinkedListPractise2<String> obj = new SinglyLinkedListPractise2<String>();
+		SinglyLinkedListPractise2<String> obj3 = new SinglyLinkedListPractise2<String>();
 		SinglyLinkedListPractise2<Integer> obj2 = new SinglyLinkedListPractise2<Integer>();
 		obj.insertAtEnd("This");
 		obj.insertAtEnd("is");
 		obj.insertAtEnd("a");
 		obj.insertAtEnd("test");
 		obj.printList();
-		obj.insertAfter("final", "This");
-		obj.printList();
-		boolean search;
-		search = obj.search("final");
-		System.out.println("value of search is : " + search);
-		obj.deletebyValue("final");
-		obj.printList();
-		search = obj.search("final");
-		System.out.println("value of search is : " + search);
 		
-		//obj2
-		obj2.insertAtEnd(1);
-		obj2.insertAtEnd(2);
-		obj2.insertAtEnd(3);
-		obj2.insertAtEnd(4);
-		obj2.insertAtEnd(5);
-		obj2.insertAtEnd(6);
-		obj2.insertAtEnd(7);
-		obj2.insertAtEnd(8);
-		obj2.insertAtEnd(8);
-		obj2.insertAtEnd(8);
-		obj2.insertAtEnd(5);
-		obj2.printList();
-		int test = (int) obj2.findMiddleNode(obj2);
-		System.out.println(test);
-		obj2.removeDuplicates(obj2);
-		obj2.printList();
+		obj3.insertAtEnd("Game");
+		obj3.insertAtEnd("is");
+		obj3.insertAtEnd("just");
+		obj3.insertAtEnd("beginning");
+		obj3.printList();
+		
+		SinglyLinkedListPractise2 test = union(obj, obj3);
+		test.printList();
+		
+		
+		
+		
+		/*
+		 * obj.insertAfter("final", "This"); obj.printList(); boolean search; search =
+		 * obj.search("final"); System.out.println("value of search is : " + search);
+		 * obj.deletebyValue("final"); obj.printList(); search = obj.search("final");
+		 * System.out.println("value of search is : " + search);
+		 * 
+		 * //obj2 obj2.insertAtEnd(1); obj2.insertAtEnd(2); obj2.insertAtEnd(3);
+		 * obj2.insertAtEnd(4); obj2.insertAtEnd(5); obj2.insertAtEnd(6);
+		 * obj2.insertAtEnd(7); obj2.insertAtEnd(8); obj2.insertAtEnd(8);
+		 * obj2.insertAtEnd(8); obj2.insertAtEnd(5); obj2.printList(); int test = (int)
+		 * obj2.findMiddleNode(obj2); System.out.println(test);
+		 * obj2.removeDuplicates(obj2); obj2.printList();
+		 */
 	}
 }
