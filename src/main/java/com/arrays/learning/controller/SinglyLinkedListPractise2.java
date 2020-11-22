@@ -204,8 +204,54 @@ public class SinglyLinkedListPractise2<T> {
 			tempNode = tempNode.nextNode;
 		}
 		
-		
+		result.removeDuplicates(result);
 		return result;
+	}
+	
+	
+	public static <T> SinglyLinkedListPractise2<T> intersection(SinglyLinkedListPractise2<T> list1, SinglyLinkedListPractise2<T> list2){
+		
+		SinglyLinkedListPractise2<T> resultList = null;
+		
+		//intersection is the direct opposite to removing duplicates and adding them to a list.
+		
+		//resultList = list1;
+		
+		//SinglyLinkedListPractise2<T>.Node currentNode = list2.headNode;
+		
+		//list1 is outer loop
+		
+		//list2 is inner loop.
+		
+		SinglyLinkedListPractise2<T>.Node currentNode = list1.headNode; //outer loop
+		SinglyLinkedListPractise2<T>.Node compareNode = list2.headNode; //inner loop
+		
+		while(currentNode!=null) {
+			
+			while(compareNode!=null) {
+				
+				//check if intersects
+				
+				if(currentNode.data.equals(compareNode.data)) {
+					
+					
+					resultList.insertAtEnd(currentNode.data);
+					
+				}
+				
+				
+				//traverse the inner loop
+				compareNode = compareNode.nextNode;
+			}
+			
+			//traverse outer loop
+			currentNode = currentNode.nextNode;
+		}
+		
+		
+				
+			return resultList;
+		
 	}
 	
 	public static void main(String[] args) {
