@@ -184,6 +184,7 @@ public class SinglyLinkedListPractise8 <T>{
 			currentNode = nextNode;
 		}
 		list.headNode= prevNode;
+		//changes for practise.
 		
 	}
 	
