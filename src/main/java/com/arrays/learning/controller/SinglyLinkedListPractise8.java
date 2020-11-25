@@ -1,6 +1,6 @@
 package com.arrays.learning.controller;
 
-import org.omg.CORBA.Current;
+
 
 public class SinglyLinkedListPractise8 <T>{
 	
@@ -188,19 +188,136 @@ public class SinglyLinkedListPractise8 <T>{
 		
 	}
 	
-	public boolean detectloop() {}
+	public boolean detectloop(SinglyLinkedListPractise8<T> list) {
+		
+		SinglyLinkedListPractise8.Node slow = list.headNode;
+		SinglyLinkedListPractise8.Node fast = list.headNode;
+		
+		while(slow!=null&& fast!=null&& fast.nextNode!=null) {
+			
+			slow = slow.nextNode;
+			fast = fast.nextNode.nextNode;
+			
+			if(slow ==fast) {
+				return true;
+			}
+			
+		}
+		return false;
+	}
 	
 	
 	
-	public void removeduplicates() {}
+	public void removeduplicates(SinglyLinkedListPractise8<T> list) {
+		
+		SinglyLinkedListPractise8.Node currentNode = list.headNode;//outer loop
+		
+		SinglyLinkedListPractise8.Node compareNode = null; //inner loop
+		
+		while(currentNode!=null && currentNode.nextNode!=null) {
+			
+			compareNode= currentNode;
+			
+			while(compareNode.nextNode!=null) {
+				
+				//check if duplicates
+				if(currentNode.data.equals(compareNode.nextNode.data)) {
+					compareNode.nextNode = compareNode.nextNode.nextNode;
+					
+				}
+				
+				else {
+					
+					compareNode = compareNode.nextNode;
+				}
+				
+			}
+			
+			currentNode = currentNode.nextNode;
+		}
+		
+		
+	}
 	
-	public void contains() {}
+	public static <T> boolean contains(SinglyLinkedListPractise8 list, T data) {
+		
+		SinglyLinkedListPractise8.Node currentNode = list.getHeadNode();
+		
+		while(currentNode!=null) {
+			
+			if(currentNode.data.equals(data)) {
+				return true;
+			}
+			
+			currentNode = currentNode.nextNode;
+			
+		}
+		return false;
+		
+		
+	}
 	
 	
 	
 
 	
-	public void union() {}
+	public static <T> SinglyLinkedListPractise8<T>  union(SinglyLinkedListPractise8 list1, SinglyLinkedListPractise8 list2) {
+		
+		//if one list is empty return other
+		
+		if(list1.isEmpty()) {
+			return list2;
+		}
+		
+		if(list2.isEmpty()) {
+			return list1;
+		}
+		
+		//take  the head of the first list
+		
+		SinglyLinkedListPractise8.Node last = list1.getHeadNode();
+		
+		//traverse it to the last node;
+		
+		while (last.nextNode!=null) {
+			
+			last = last.nextNode;
+		}
+		
+		//attach the last element of list1 to the head of list2.
+		
+		last.nextNode = list2.getHeadNode();
+		
+		//remove duplicates
+		
+		list1.removeduplicates(list1);
+		
+		return list1;
+	}
 	
-	public void intersection() {}
+	public static <T> SinglyLinkedListPractise8<T> intersection(SinglyLinkedListPractise8<T> list1, SinglyLinkedListPractise8<T> list2) {
+		
+		SinglyLinkedListPractise8<T> result = new SinglyLinkedListPractise8<T>();
+		
+		if(list1.isEmpty()|| list2.isEmpty()) {
+			
+			return result;
+		}
+		
+		
+		SinglyLinkedListPractise8<T>.Node currentNode = list1.getHeadNode();
+		
+		while(currentNode!=null) {
+			
+			if(contains(list2, currentNode.data)) {
+				result.insertATHead(currentNode.data);
+				
+				
+			}
+			
+			currentNode = currentNode.nextNode;
+		}
+		
+		return result;
+	}
 }
