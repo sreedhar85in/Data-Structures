@@ -239,9 +239,9 @@ public class SinglyLinkedListPractise8 <T>{
 		
 	}
 	
-	public static <T> boolean contains(SinglyLinkedListPractise8 list, T data) {
+	public static <T> boolean contains(SinglyLinkedListPractise8<T> list, T data) {
 		
-		SinglyLinkedListPractise8.Node currentNode = list.getHeadNode();
+		SinglyLinkedListPractise8<T>.Node currentNode = list.getHeadNode();
 		
 		while(currentNode!=null) {
 			
