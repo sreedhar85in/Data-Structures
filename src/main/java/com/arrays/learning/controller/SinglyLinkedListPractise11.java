@@ -259,7 +259,7 @@ public class SinglyLinkedListPractise11<T> {
 		
 		SinglyLinkedListPractise11<T>.Node currentNode = list1.getHeadNode();
 		
-		while(currentNode!=null) {
+		while(currentNode.nextNode!=null) {
 			currentNode = currentNode.nextNode;
 		}
 		
