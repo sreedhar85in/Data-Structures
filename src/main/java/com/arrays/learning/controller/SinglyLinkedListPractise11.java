@@ -293,6 +293,55 @@ public class SinglyLinkedListPractise11<T> {
 		
 	}
 	
+	public static <T> void removeDuplicates(SinglyLinkedListPractise11<T> list1) {
+		
+		SinglyLinkedListPractise11<T>.Node currentNode= list1.getHeadNode(); //outer loop
+		SinglyLinkedListPractise11<T>.Node compareNode = null; //inner loop
+		
+		while(currentNode!=null && currentNode.nextNode!=null) {
+			compareNode = currentNode;
+			
+			while(compareNode.nextNode!=null) {
+				
+				if(currentNode.data.equals(compareNode.nextNode.data)) {
+					compareNode.nextNode = compareNode.nextNode.nextNode;
+				}
+				compareNode = compareNode.nextNode;
+			}
+			
+			currentNode = currentNode.nextNode;
+		}
+	}
+	
+	public static <T> Object nthelementFromEnd(SinglyLinkedListPractise11<T> list1, int n) {
+		
+		if(list1.isEmpty()) {
+			return null;
+		}
+		
+		SinglyLinkedListPractise11<T>.Node currentNode = list1.getHeadNode();
+		int count = list1.getSize();
+		
+		//int formula = count - (n-1)
+		
+		int formula = count - (n-1);
+		int counter = 0;
+		
+		while(counter!=formula && currentNode!=null) {
+			counter++;
+			currentNode = currentNode.nextNode;
+			
+		}
+		
+		if(counter==formula) {
+			
+			return currentNode.data;
+		}
+		
+		
+		return null;
+	}
+	
 	
 
 	public static void main(String[] args) {
