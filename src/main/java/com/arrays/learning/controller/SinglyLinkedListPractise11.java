@@ -325,7 +325,7 @@ public class SinglyLinkedListPractise11<T> {
 		//int formula = count - (n-1)
 		
 		int formula = count - (n-1);
-		int counter = 0;
+		int counter = 1;
 		
 		while(counter!=formula && currentNode!=null) {
 			counter++;
@@ -346,6 +346,15 @@ public class SinglyLinkedListPractise11<T> {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
+		
+		SinglyLinkedListPractise11<Integer> obj = new SinglyLinkedListPractise11<Integer>();
+		obj.insertATEnd(1);
+		obj.insertATEnd(2);
+		obj.insertATEnd(3);
+	//	obj.insertATEnd(4);
+		obj.printList();
+		
+		System.out.println(nthelementFromEnd(obj,2));
 
 	}
 
