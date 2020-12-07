@@ -320,11 +320,12 @@ public class SinglyLinkedListPractise11<T> {
 		}
 		
 		SinglyLinkedListPractise11<T>.Node currentNode = list1.getHeadNode();
-		int count = list1.getSize();
+		int listSize = list1.getSize();
 		
 		//int formula = count - (n-1)
+	//	n = size - n + 1
 		
-		int formula = count - (n-1);
+		int formula = listSize - (n-1);
 		int counter = 1;
 		
 		while(counter!=formula && currentNode!=null) {
